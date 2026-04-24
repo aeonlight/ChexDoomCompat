@@ -1,0 +1,4 @@
+server int ChexWeapReplace = 0;
+server int ChexAmmoReplace = 1;
+server int ChexPickupReplace = 1;
+server int ChexKeyReplace = 1;

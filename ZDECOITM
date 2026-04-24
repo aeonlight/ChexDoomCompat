@@ -1,0 +1,37 @@
+// attempts to create the flemkeys and night vision visor in zscript before chex
+// can create them in decorate.this should functionally replace them with
+// signifigantly extended functionality.
+
+class RedFlemKey : RedSkull
+{
+	Default
+	{
+		Inventory.Pickupmessage "$GOTREDFLEM";
+	}
+}
+class YellowFlemKey : YellowSkull
+{
+	Default
+	{
+		Inventory.Pickupmessage "$GOTYELLOWFLEM";
+	}
+}
+class BlueFlemKey : BlueSkull
+{
+	Default
+	{
+		Inventory.Pickupmessage "$GOTBLUEFLEM";
+	}
+}
+class UltraGoggles : Infrared
+{
+	Default
+	{
+		Inventory.Pickupmessage "$GOTGOGGLES";
+	}
+	States
+	{
+	Spawn:
+		PVIS AB 6 Bright;
+	}	
+}

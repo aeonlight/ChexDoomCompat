@@ -1,0 +1,320 @@
+version "4.14.3"
+
+// #include "WEAPSLOT" // script intended to combine weapon lists. doesn't work.
+#include "HYBRDPLR" // adds a custom playerclass as an alternative to above idea
+#include "ZDECOITM" // script intended to create cq3 deco items before cq3 can
+class ChexKeyPatcher : EventHandler
+{
+	override void CheckReplacement(ReplaceEvent ChexKeyPatch)
+	{
+		// replaces chex keys with doom keycards
+		if (ChexKeyPatch.Replacee == 'ChexBlueCard' && ChexKeyReplace == 1)
+		{
+			ChexKeyPatch.Replacement = 'BlueCard';
+		}
+		if (ChexKeyPatch.Replacee == 'ChexRedCard' && ChexKeyReplace == 1)
+		{
+			ChexKeyPatch.Replacement = 'RedCard';
+		}
+		if (ChexKeyPatch.Replacee == 'ChexYellowCard' && ChexKeyReplace == 1)
+		{
+			ChexKeyPatch.Replacement = 'YellowCard';
+		}
+		// replaces chex flemkeys with doom skull keys
+		if (ChexKeyPatch.Replacee == 'BlueFlemKey' && ChexKeyReplace == 1)
+		{
+			ChexKeyPatch.Replacement = 'BlueSkull';
+		}
+		if (ChexKeyPatch.Replacee == 'RedFlemKey' && ChexKeyReplace == 1)
+		{
+			ChexKeyPatch.Replacement = 'RedSkull';
+		}
+		if (ChexKeyPatch.Replacee == 'YellowFlemKey' && ChexKeyReplace == 1)
+		{
+			ChexKeyPatch.Replacement = 'YellowSkull';
+		}
+		// replaces doom keycards with chex keys
+		// due to the way lockdefs is currently set, this breaks things
+		if (ChexKeyPatch.Replacee == 'BlueCard' && ChexKeyReplace == 2)
+		{
+			ChexKeyPatch.Replacement = 'ChexBlueCard';
+		}
+		if (ChexKeyPatch.Replacee == 'RedCard' && ChexKeyReplace == 2)
+		{
+			ChexKeyPatch.Replacement = 'ChexRedCard';
+		}
+		if (ChexKeyPatch.Replacee == 'YellowCard' && ChexKeyReplace == 2)
+		{
+			ChexKeyPatch.Replacement = 'ChexYellowCard';
+		}
+		// replaces doom skull keys with chex flemkeys
+		// due to the way lockdefs is currently set, this breaks things
+		if (ChexKeyPatch.Replacee == 'BlueSkull' && ChexKeyReplace == 2)
+		{
+			ChexKeyPatch.Replacement = 'BlueFlemKey';
+		}
+		if (ChexKeyPatch.Replacee == 'RedSkull' && ChexKeyReplace == 2)
+		{
+			ChexKeyPatch.Replacement = 'RedFlemKey';
+		}
+		if (ChexKeyPatch.Replacee == 'YellowSkull' && ChexKeyReplace == 2)
+		{
+			ChexKeyPatch.Replacement = 'YellowFlemKey';
+		}
+	}
+}
+
+class ChexPickupPatcher : EventHandler
+{
+	override void CheckReplacement(ReplaceEvent ChexGrabPatch)
+	{
+		// replaces the chex pickups that aren't keys or weapons/ammo with doom
+		if (ChexGrabPatch.Replacee == 'ZorchPack' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'Backpack';
+		}
+		if (ChexGrabPatch.Replacee == 'ComputerAreaMap' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'Allmap';
+		}
+		if (ChexGrabPatch.Replacee == 'SlimeProofSuit' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'RadSuit';
+		}
+		if (ChexGrabPatch.Replacee == 'UltraGoggles' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'Infrared';
+		}
+		if (ChexGrabPatch.Replacee == 'SlimeRepellent' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'ArmorBonus';
+		}
+		if (ChexGrabPatch.Replacee == 'ChexArmor' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'GreenArmor';
+		}
+		if (ChexGrabPatch.Replacee == 'SuperChexArmor' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'BlueArmor';
+		}
+		if (ChexGrabPatch.Replacee == 'GlassOfWater' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'HealthBonus';
+		}
+		if (ChexGrabPatch.Replacee == 'BowlOfFruit' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'Stimpack';
+		}
+		if (ChexGrabPatch.Replacee == 'BowlOfVegetables' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'Medikit';
+		}
+		if (ChexGrabPatch.Replacee == 'SuperchargeBreakfast' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'Soulsphere';
+		}
+		// replaces the doom pickups that aren't keys or weapons/ammo with chex
+		if (ChexGrabPatch.Replacee == 'Backpack' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'ZorchPack';
+		}
+		if (ChexGrabPatch.Replacee == 'Allmap' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'ComputerAreaMap';
+		}
+		if (ChexGrabPatch.Replacee == 'RadSuit' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'SlimeProofSuit';
+		}
+		if (ChexGrabPatch.Replacee == 'Infrared' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'UltraGoggles';
+		}
+		if (ChexGrabPatch.Replacee == 'ArmorBonus' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'SlimeRepellent';
+		}
+		if (ChexGrabPatch.Replacee == 'GreenArmor' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'ChexArmor';
+		}
+		if (ChexGrabPatch.Replacee == 'BlueArmor' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'SuperChexArmor';
+		}
+		if (ChexGrabPatch.Replacee == 'HealthBonus' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'GlassOfWater';
+		}
+		if (ChexGrabPatch.Replacee == 'Stimpack' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'BowlOfFruit';
+		}
+		if (ChexGrabPatch.Replacee == 'Medikit' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'BowlOfVegetables';
+		}
+		if (ChexGrabPatch.Replacee == 'Soulsphere' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'SuperchargeBreakfast';
+		}
+	}
+}
+
+class ChexAmmoPatcher : EventHandler
+{
+	override void CheckReplacement(ReplaceEvent ChexAmmoPatch)
+	{
+		// replaces chex ammo drops with doom equivalents
+		if (ChexAmmoPatch.Replacee == 'MiniZorchRecharge' && ChexAmmoReplace == 1)
+		{
+			ChexAmmoPatch.Replacement = 'Clip';
+		}
+		if (ChexAmmoPatch.Replacee == 'MiniZorchPack' && ChexAmmoReplace == 1)
+		{
+			ChexAmmoPatch.Replacement = 'ClipBox';
+		}
+		if (ChexAmmoPatch.Replacee == 'LargeZorchRecharge' && ChexAmmoReplace == 1)
+		{
+			ChexAmmoPatch.Replacement = 'Shell';
+		}
+		if (ChexAmmoPatch.Replacee == 'LargeZorchPack' && ChexAmmoReplace == 1)
+		{
+			ChexAmmoPatch.Replacement = 'ShellBox';
+		}
+		if (ChexAmmoPatch.Replacee == 'PropulsorZorch' && ChexAmmoReplace == 1)
+		{
+			ChexAmmoPatch.Replacement = 'RocketAmmo';
+		}
+		if (ChexAmmoPatch.Replacee == 'PropulsorZorchPack' && ChexAmmoReplace == 1)
+		{
+			ChexAmmoPatch.Replacement = 'RocketBox';
+		}
+		if (ChexAmmoPatch.Replacee == 'PhasingZorch' && ChexAmmoReplace == 1)
+		{
+			ChexAmmoPatch.Replacement = 'Cell';
+		}
+		if (ChexAmmoPatch.Replacee == 'PhasingZorchPack' && ChexAmmoReplace == 1)
+		{
+			ChexAmmoPatch.Replacement = 'CellPack';
+		}
+		// replaces doom ammo drops with chex equivalents (who would need this?)
+		if (ChexAmmoPatch.Replacee == 'Clip' && ChexAmmoReplace == 2)
+		{
+			ChexAmmoPatch.Replacement = 'MiniZorchRecharge';
+		}
+		if (ChexAmmoPatch.Replacee == 'ClipBox' && ChexAmmoReplace == 2)
+		{
+			ChexAmmoPatch.Replacement = 'MiniZorchPack';
+		}
+		if (ChexAmmoPatch.Replacee == 'Shell' && ChexAmmoReplace == 2)
+		{
+			ChexAmmoPatch.Replacement = 'LargeZorchRecharge';
+		}
+		if (ChexAmmoPatch.Replacee == 'ShellBox' && ChexAmmoReplace == 2)
+		{
+			ChexAmmoPatch.Replacement = 'LargeZorchPack';
+		}
+		if (ChexAmmoPatch.Replacee == 'RocketAmmo' && ChexAmmoReplace == 2)
+		{
+			ChexAmmoPatch.Replacement = 'PropulsorZorch';
+		}
+		if (ChexAmmoPatch.Replacee == 'RocketBox' && ChexAmmoReplace == 2)
+		{
+			ChexAmmoPatch.Replacement = 'PropulsorZorchPack';
+		}
+		if (ChexAmmoPatch.Replacee == 'Cell' && ChexAmmoReplace == 2)
+		{
+			ChexAmmoPatch.Replacement = 'PhasingZorch';
+		}
+		if (ChexAmmoPatch.Replacee == 'CellPack' && ChexAmmoReplace == 2)
+		{
+			ChexAmmoPatch.Replacement = 'PhasingZorchPack';
+		}
+	}
+}
+
+class ChexWeapPatcher : EventHandler
+{
+	override void CheckReplacement(ReplaceEvent ChexWeapPatch)
+	{
+		// replaces chex weapons with doom equivalents
+		// does NOT make the doom weapons scrollable in chex quest
+		// nor does it replace your starting weapons, this just does pickups
+		if (ChexWeapPatch.Replacee == 'Bootspoon' && ChexWeapReplace == 1)
+		{
+			ChexWeapPatch.Replacement = 'Fist';
+		}
+		if (ChexWeapPatch.Replacee == 'SuperBootspork' && ChexWeapReplace == 1)
+		{
+			ChexWeapPatch.Replacement = 'Chainsaw';
+		}
+		if (ChexWeapPatch.Replacee == 'MiniZorcher' && ChexWeapReplace == 1)
+		{
+			ChexWeapPatch.Replacement = 'Pistol';
+		}
+		if (ChexWeapPatch.Replacee == 'LargeZorcher' && ChexWeapReplace == 1)
+		{
+			ChexWeapPatch.Replacement = 'Shotgun';
+		}
+		if (ChexWeapPatch.Replacee == 'SuperLargeZorcher' && ChexWeapReplace == 1)
+		{
+			ChexWeapPatch.Replacement = 'SuperShotgun';
+		}
+		if (ChexWeapPatch.Replacee == 'RapidZorcher' && ChexWeapReplace == 1)
+		{
+			ChexWeapPatch.Replacement = 'Chaingun';
+		}
+		if (ChexWeapPatch.Replacee == 'ZorchPropulsor' && ChexWeapReplace == 1)
+		{
+			ChexWeapPatch.Replacement = 'RocketLauncher';
+		}
+		if (ChexWeapPatch.Replacee == 'PhasingZorcher' && ChexWeapReplace == 1)
+		{
+			ChexWeapPatch.Replacement = 'PlasmaRifle';
+		}
+		if (ChexWeapPatch.Replacee == 'LAZDevice' && ChexWeapReplace == 1)
+		{
+			ChexWeapPatch.Replacement = 'BFG9000';
+		}
+		// replaces doom weapons with chex equivalents
+		// does NOT make the chex quest weapons scrollable in doom
+		// nor does it replace your starting weapons, this just does pickups
+		if (ChexWeapPatch.Replacee == 'Fist' && ChexWeapReplace == 2)
+		{
+			ChexWeapPatch.Replacement = 'Bootspoon';
+		}
+		if (ChexWeapPatch.Replacee == 'Chainsaw' && ChexWeapReplace == 2)
+		{
+			ChexWeapPatch.Replacement = 'SuperBootspork';
+		}
+		if (ChexWeapPatch.Replacee == 'Pistol' && ChexWeapReplace == 2)
+		{
+			ChexWeapPatch.Replacement = 'MiniZorcher';
+		}
+		if (ChexWeapPatch.Replacee == 'Shotgun' && ChexWeapReplace == 2)
+		{
+			ChexWeapPatch.Replacement = 'LargeZorcher';
+		}
+		if (ChexWeapPatch.Replacee == 'SuperShotgun' && ChexWeapReplace == 2)
+		{
+			ChexWeapPatch.Replacement = 'SuperLargeZorcher';
+		}
+		if (ChexWeapPatch.Replacee == 'Chaingun' && ChexWeapReplace == 2)
+		{
+			ChexWeapPatch.Replacement = 'RapidZorcher';
+		}
+		if (ChexWeapPatch.Replacee == 'RocketLauncher' && ChexWeapReplace == 2)
+		{
+			ChexWeapPatch.Replacement = 'ZorchPropulsor';
+		}
+		if (ChexWeapPatch.Replacee == 'PlasmaRifle' && ChexWeapReplace == 2)
+		{
+			ChexWeapPatch.Replacement = 'PhasingZorcher';
+		}
+		if (ChexWeapPatch.Replacee == 'BFG9000' && ChexWeapReplace == 2)
+		{
+			ChexWeapPatch.Replacement = 'LAZDevice';
+		}
+	}
+}

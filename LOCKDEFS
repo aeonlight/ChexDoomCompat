@@ -1,0 +1,319 @@
+// duplicates zdoom's lock list, (not yet) modified to include chex quest keys.
+// intended to replace chex quest's own LOCKDEFS with a more widely compatible
+// set of locks - allowing use of all key types featured in prior LOCKDEFS.
+// setting up LANGUAGE entries for all of these is gonna be annoying...
+// TODO: cover extended edge cases (e.g. redcard redchex noskull noflem)
+// TODO: finalize advanced locks into modder resource and create simple locks
+
+// CLEARLOCKS // probably not needed? maybe include anyway
+
+// for player-facing release, make these use Any { DoomKey ChexKey }
+Lock 1
+{
+	RedCard
+	Message "$PD_REDC"
+	RemoteMessage "$PD_REDCO"
+	Mapcolor 255 0 0
+}
+
+
+Lock 2
+{
+	BlueCard
+	Message "$PD_BLUEC"
+	RemoteMessage "$PD_BLUECO"
+	Mapcolor 0 0 255
+}
+
+
+Lock 3
+{
+	YellowCard
+	Message "$PD_YELLOWC"
+	RemoteMessage "$PD_YELLOWCO"
+	Mapcolor 255 255 0
+}
+
+Lock 4
+{
+	RedSkull
+	Message "$PD_REDS"
+	RemoteMessage "$PD_REDSO"
+	Mapcolor 255 0 0
+}
+
+
+Lock 5
+{
+	BlueSkull
+	Message "$PD_BLUES"
+	RemoteMessage "$PD_BLUESO"
+	Mapcolor 0 0 255
+}
+
+Lock 6
+{
+	YellowSkull
+	Message "$PD_YELLOWS"
+	RemoteMessage "$PD_YELLOWSO"
+	Mapcolor 255 255 0
+}
+
+// heretic prism keys, do not make equivalent with doom/chex keys
+Lock 7
+{
+	KeyGreen
+	Message "You need a green prism key for this door"
+	RemoteMessage "KeyGreen Remote Placeholder"
+}
+
+Lock 8
+{
+	KeyBlue
+	Message "You need a blue prism key for this door"
+	RemoteMessage "KeyBlue Remote Placeholder"
+}
+
+Lock 9
+{
+	KeyYellow
+	Message "You need a yellow prism key for this door"
+	RemoteMessage "KeyYellow Remote Placeholder"
+}
+
+// chex key and flemkey locks
+// these will be provided as chex key only in modder resource LOCKDEFS.txt ver
+// alongside the normal lock values remaining doom key only as is vanilla
+// these will be duplicates of standard locks in player-facing wad release
+Lock 11
+{
+	ChexRedCard
+	Message "$PD_REDK"
+	RemoteMessage "$PD_REDKO"
+}
+
+Lock 12
+{
+	ChexBlueCard
+	Message "$PD_BLUEK"
+	RemoteMessage "$PD_BLUEKO"
+}
+
+Lock 13
+{
+	ChexYellowCard
+	Message "$PD_YELLOWK"
+	RemoteMessage "$PD_YELLOWKO"
+}
+// flemkeys aren't highlighting in slade - they do work regardless
+Lock 14
+{
+	RedFlemKey
+	Message "$PD_REDF"
+	RemoteMessage "$PD_REDFO"
+}
+
+Lock 15
+{
+	BlueFlemKey
+	Message "$PD_BLUEF"
+	RemoteMessage "$PD_BLUEFO"
+}
+
+Lock 16
+{
+	YellowFlemKey
+	Message "$PD_YELLOWF"
+	RemoteMessage "$PD_YELLOWFO"
+}
+
+// zdoom's default doom lock schema had the keys from heretic in several
+// of these next listings for some reason. this file expands on that
+// sidenote, why does the zdoom wiki call them "prism keys"?
+// it's nice to have a name for them aside from just "key" or "heretic key",
+// but I wonder where the name "prism key" came from - it's not in the heretic
+// manual I found, nor do the actual in-game pickups call them such
+
+Lock 100 // any key door
+{
+	// I hate how long this is
+	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey KeyBlue RedCard ChexRedCard RedSkull RedFlemKey KeyGreen YellowCard ChexYellowCard YellowSkull YellowFlemKey KeyYellow }
+	Message "Any key will open this door"
+	RemoteMessage "Any key will activate this object"
+	Mapcolor 128 128 255
+}
+
+// for player-facing release, duplicate doom/chex keys in the following listings
+// for modder resource release, separate chex key locks need to be added
+
+Lock 101 // doom all 6
+{
+	BlueCard 
+	BlueSkull
+	YellowCard 
+	YellowSkull
+	RedCard 
+	RedSkull
+	Message "$PD_ALL6"
+	RemoteMessage "$PD_ALL6O"
+}
+
+// skipped 102 because it's used for "this doesn't work" in the test maps I have
+// skilled 103 because overwriting the strife lock feels like bad luck
+
+Lock 104 // chex all 6
+{
+	ChexBlueCard
+	BlueFlemKey
+	ChexYellowCard
+	YellowFlemKey
+	ChexRedCard
+	RedFlemKey
+	Message "CHEX ALL 6"
+}
+
+Lock 105 // doom "all 9", like an all 6 but with heretic keys
+{
+	BlueCard
+	BlueSkull
+	KeyBlue
+	YellowCard
+	YellowSkull
+	KeyYellow
+	RedCard
+	RedSkull
+	KeyGreen
+	Message "ALL 9 DOOM KEY DOOR"
+}
+
+Lock 106 // chex ver"all 9", like 101 but with heretic keys
+{
+	ChexBlueCard
+	BlueFlemKey
+	KeyBlue
+	ChexYellowCard
+	YellowFlemKey
+	KeyYellow
+	ChexRedCard
+	RedFlemKey
+	KeyGreen
+	Message "ALL 9 CHEX KEY DOOR"
+}
+
+Lock 129
+{
+	// includes doom + heretic keys in vanilla, added chex quest color matching
+	Any { RedCard ChexRedCard RedSkull RedFlemKey KeyGreen }
+	Message "$PD_REDK"
+	RemoteMessage "$PD_REDO"
+	Mapcolor 255 0 0
+}
+
+
+Lock 130
+{
+	// includes doom + heretic keys in vanilla, added chex quest color matching
+	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey KeyBlue }
+	Message "$PD_BLUEK"
+	RemoteMessage "$PD_BLUEO"
+	Mapcolor 0 0 255
+}
+
+
+Lock 131
+{
+	// includes doom + heretic keys in vanilla, added chex quest color matching
+	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey KeyYellow }
+	Message "$PD_YELLOWK"
+	RemoteMessage "$PD_YELLOWO"
+	Mapcolor 255 255 0
+}
+
+Lock 132 // doom reds only
+{
+	Any { RedCard RedSkull }
+	Message "$PD_REDK"
+	RemoteMessage "$PD_REDO"
+	Mapcolor 255 0 0
+}
+
+
+Lock 133 // doom blues only
+{
+	Any { BlueCard BlueSkull }
+	Message "$PD_BLUEK"
+	RemoteMessage "$PD_BLUEO"
+	Mapcolor 0 0 255
+}
+
+
+Lock 134 // doom yellows only
+{
+	Any { YellowCard YellowSkull }
+	Message "$PD_YELLOWK"
+	RemoteMessage "$PD_YELLOWO"
+	Mapcolor 255 255 0
+}
+
+Lock 135 // chex reds only
+{
+	Any { ChexRedCard RedFlemKey }
+	Message "CHEXRED ANY"
+	RemoteMessage "CHEXRED ANY REMOTE"
+}
+
+Lock 136 // chex blues only
+{
+	Any { ChexBlueCard BlueFlemKey }
+	Message "CHEXBLUE ANY"
+	RemoteMessage "CHEXBLUE ANY REMOTE"
+}
+
+Lock 137 // chex yellows only
+{
+	Any { ChexYellowCard YellowFlemKey }
+	Message "CHEXYELLOW ANY"
+	RemoteMessage "CHEXYELLOW ANY REMOTE"
+}
+
+// Lock 201 reserved as a shoutout to the green keycard map of kappes, who
+// helped me figure out how to implement the heretic keys fully into doom
+// the tutorials kappes linked to me (and their associated maps) are found here:
+// https://kappes.drdteam.org/NEW_KEY/new%20key.htm (aforementioned green keycard)
+// https://kappes.drdteam.org/LAVAPOT/lavapot.htm (how to use heretic stuff in doom)
+
+Lock 229 // generic all 3, includes heretic keys in vanilla
+{
+	Any { BlueCard BlueSkull KeyBlue }
+	Any { YellowCard YellowSkull KeyYellow }
+	Any { RedCard RedSkull KeyGreen }
+	Message "$PD_ALL3"
+	RemoteMessage "$PD_ALL3O"
+}
+
+Lock 230 // chex all 3
+{
+	Any { ChexBlueCard BlueFlemKey }
+	Any { ChexYellowCard YellowFlemKey }
+	Any { ChexRedCard RedFlemKey }
+	Message "CHEX ALL3"
+	RemoteMessage "CHEX ALL3 REMOTE"
+}
+
+Lock 231 // doom all 3
+{
+	Any { BlueCard BlueSkull }
+	Any { YellowCard YellowSkull }
+	Any { RedCard RedSkull }
+	Message "DOOM ALL3"
+	RemoteMessage "DOOM ALL3 REMOTE"
+}
+
+Lock 232 // heretic all 3
+{
+	KeyBlue
+	KeyYellow
+	KeyGreen
+	Message "PRISM ALL3"
+	RemoteMessage "PRISM ALL3 REMOTE"
+}

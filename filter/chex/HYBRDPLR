@@ -1,0 +1,21 @@
+// this is a custom playerclass which can use weapons from both doom and chex
+// ideally, I'd have its starting weapons change with the weapon replace cvar
+// and when that's set to off, fall back on if the detected game is doom or chex
+// while the fallback can likely be done via lumpfiltering, idk about the cvar
+class PatchHybridPlayer : DoomPlayer
+{
+	Default
+	{
+		Player.DisplayName "ChexPatch Warrior"; // name depends on base game
+		Player.StartItem "MiniZorcher"; // starting weapons also check base game
+		Player.StartItem "Bootspoon"; // chex gets warrior and chex weapons
+		Player.StartItem "Clip", 50;
+		Player.WeaponSlot 1, "Fist", "Bootspoon", "SuperBootspork", "Chainsaw";
+		Player.WeaponSlot 2, "MiniZorcher", "Pistol";
+		Player.WeaponSlot 3, "LargeZorcher", "Shotgun", "SuperLargeZorcher", "SuperShotgun";
+		Player.WeaponSlot 4, "RapidZorcher", "Chaingun";
+		Player.WeaponSlot 5, "ZorchPropulsor", "RocketLauncher";
+		Player.WeaponSlot 6, "PhasingZorcher", "PlasmaRifle";
+		Player.WeaponSlot 7, "LAZDevice", "BFG9000";
+	}
+}

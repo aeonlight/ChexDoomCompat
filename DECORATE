@@ -1,0 +1,85 @@
+// this decorate file only exists to replace the four chex3 items zscript can't.
+// these dummy actors replace the decorate items from chex quest,
+// then instantly spawn my zscript remakes of these items (which load first),
+// then the dummy actors delete themselves, leaving my items in their place.
+// for full compatibility I've directed these at both 1.4 and 2.0 decorates
+// which will throw script errors in the log for one when the other is loaded
+// but won't actually break anything. it's intended behavior
+
+// they don't actually get anyting from inheriting the keys, by the way.
+// that's more just for organizational purposes (i.e. the dumpclasses tree).
+
+// this replaces the chex quest 3 v1.4 decorate items
+ACTOR UltraGogglesPatchWAD : Infrared replaces UltraGoggles@chex3.wad@decorate
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx(UltraGoggles,0,0,0,0,0,0,0,0,0,0)
+		STOP
+	}
+}
+ACTOR BlueFlemPatchWAD : BlueSkull replaces BlueFlemKey@chex3.wad@decorate
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx(BlueFlemKey,0,0,0,0,0,0,0,0,0,0)
+		STOP
+	}
+}
+ACTOR RedFlemPatchWAD : RedSkull replaces RedFlemKey@chex3.wad@decorate
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx(RedFlemKey,0,0,0,0,0,0,0,0,0,0)
+		STOP
+	}
+}
+ACTOR YellowFlemPatchWAD : YellowSkull replaces YellowFlemKey@chex3.wad@decorate
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx(YellowFlemKey,0,0,0,0,0,0,0,0,0,0)
+		STOP
+	}
+}
+// this replaces the chex quest 3 v2.0 decorate items
+ACTOR UltraGogglesPatchPK3 : Infrared replaces UltraGoggles@chex3gzd-rc5.ipk3@decorate.txt
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx(UltraGoggles,0,0,0,0,0,0,0,0,0,0)
+		STOP
+	}
+}
+ACTOR BlueFlemPatchPK3 : BlueSkull replaces BlueFlemKey@chex3gzd-rc5.ipk3@decorate.txt
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx(BlueFlemKey,0,0,0,0,0,0,0,0,0,0)
+		STOP
+	}
+}
+ACTOR RedFlemPatchPK3 : RedSkull replaces RedFlemKey@chex3gzd-rc5.ipk3@decorate.txt
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx(RedFlemKey,0,0,0,0,0,0,0,0,0,0)
+		STOP
+	}
+}
+ACTOR YellowFlemPatchPK3 : YellowSkull replaces YellowFlemKey@chex3gzd-rc5.ipk3@decorate.txt
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx(YellowFlemKey,0,0,0,0,0,0,0,0,0,0)
+		STOP
+	}
+}

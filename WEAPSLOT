@@ -1,0 +1,30 @@
+struct WeaponSlots
+{
+	static void SetupWeaponSlots (PlayerPawn EasterEgg)
+	{
+		// placeholder lines!
+		// this file was intended to modify the weapon lists of the ChexPlayer
+		// and DoomPlayer classes, to include both games' weapons in both lists.
+		// as you can see, it does not do that.
+		// in fact, it does nothing. in theory you could uncomment the include
+		// in the main zscript lump and load this without causing any errors.
+		// at least, not any that I encountered. but as shown here, I don't
+		// know what I'm doing. I don't even know if this frame I'm commenting
+		// inside of does anything. probably not. I only have the zdoom wiki to
+		// guide me through this, and it kind of sucks. a lot. most of the code
+		// in this mod is actually brute-forced together. I don't even know if
+		// the goal of this specific file is even possible. modifying classes
+		// in zdoom (instead of replacing them, which wouldn't work for generic
+		// mod compatability, the goal of this project) is kind of fucked.
+		// I made an option to swap the doom and chex weapon spawns instead.
+		// all that said, this is a passion project, and my first doom mod (as
+		// far as I can remember anyway), so I'm pretty proud of it!
+		// thanks for reading all this.
+		
+		
+		// EDIT FROM A FEW DAYS LATER IN DEVELOPMENT: I just made a playerclass
+		// instead of whatever this nonsense was supposed to be lol
+		// it gets overwritten by custom weapon mods either way so I decided to
+		// take the easier route with this. though the sentiment still stands.
+	}
+}

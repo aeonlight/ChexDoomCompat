@@ -1,0 +1,26 @@
+// mostly just notes right now
+// chex key message "You need a Chex™ [color] key to open this door"
+// doom key message "You need a [color] card to open this door"
+// default key message for both is $PD_[COLOR]C
+// adding an O to the end (e.g. $PD_[COLOR]CO marks it as remote use
+// doom message will remain with marker C since that's what mods target
+// doom skulls use S and chex flemkeys use F, no conflict
+// chex will be migrated to marker K (for key, vs C for card)
+// heretic prism keys will be given marker P following this trend
+// if we move to .pk3 over .wad for git purposes, make this language lump .csv
+
+// TODO: replace heretic's key + lock strings with the following:
+// key message "You found a strangely prismatic [color] key..."
+// lock message "You need a prismatic [color] key to open this door"
+// heretic prismkey pickups refer to:
+// (lock is easy since I'm defining those, but how do I change key message?)
+// idea,the door for the green key can say "red(?)" instead, for fun
+// TODO: implement doom key messages here to ensure chex doesn't overwrite
+// TODO: find out if doom's lock messages can be directed to chex's on cvar
+// TODO: determine if ultragoggles "$GOTGOGGLES" reference is unique or doom
+// TODO: implement chex flemkey + ultragoggles strings here for use in doom
+// TODO: find LANGUAGE reference for "any key" lock
+// consider: change "chex [color] key" out for "IFC [color] key", in reference
+// to chex quest's international federation of cereals and as opposed to the
+// flemkeys from chex quest's flemoid dimension
+// consider: change doom keys from "[color] keycard" to "UAC [color] keycard"

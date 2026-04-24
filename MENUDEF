@@ -1,0 +1,41 @@
+// this file defines the custom options menu for this mod, rather self-evidently
+
+OptionValue "ChexReplaceSet" // set of values each option can be set to
+{
+	0, "OFF"
+	1, "DOOM"
+	2, "CHEX"
+}
+
+OptionValue "ChexReplaceNoFunc" // devtest value set for nonfunctional settings
+{
+	1, "DOOM"
+}
+
+AddOptionMenu "OptionsMenu" // adds this mod's custom options menu to the list
+{
+    Submenu "ChexDoom Options", "ChexDoomCompatOptions"
+}
+
+OptionMenu "ChexDoomCompatOptions" // defines the contents of custom options menu
+{
+Title "CHEX QUEST 3 DOOM MODDING COMPATIBILITY PATCH OPTIONS"
+StaticText "Options for all of these are OFF, DOOM, CHEX."
+StaticText "Weapons default to OFF. Everything else defaults to DOOM."
+StaticText ""
+Option "Weapon Replacement", "ChexWeapReplace", "ChexReplaceSet"
+StaticText "Changes which game's weapons spawn. Mixing them together breaks things."
+StaticText "Most mods use doom weapons. Only use chex if nothing else works."
+StaticText ""
+Option "Ammo Replacement", "ChexAmmoReplace", "ChexReplaceSet"
+StaticText "Changes which game's ammo spawns. Doom and chex share ammo types."
+StaticText "Most mods use doom ammo drops. Only use chex if nothing else works."
+StaticText ""
+Option "Pickup Replacement", "ChexPickupReplace", "ChexReplaceSet"
+StaticText "Changes which game's pickups spawn. Mostly just flavortext in vanilla."
+StaticText "Most mods use doom pickups. Chex pickups may have unintended effects."
+StaticText ""
+Option "Key Replacement", "ChexKeyReplace", "ChexReplaceSet"
+StaticText "Changes which game's keys spawn. Chex keys may not work correctly."
+StaticText "Most mods use doom keys. Only use chex if nothing else works."
+}

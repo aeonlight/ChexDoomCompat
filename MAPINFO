@@ -1,0 +1,42 @@
+GameInfo
+{
+	// this adds this mod's zscript event handles (the item replacers) to every map
+	AddEventHandlers = "ChexKeyPatcher", "ChexPickupPatcher", "ChexAmmoPatcher", "ChexWeapPatcher"
+	// this adds a custom playerclass to the menus, which uses both games' weaps
+	// originally I wanted to include the doom and chex players as options too
+	// but I couldn't figure out how to prevent the new game class select menu
+	PlayerClasses = "PatchHybridPlayer"
+	NoRandomPlayerClass = true
+}
+// this adds unique map editor numbers to every key, allowing for more control
+// over which types of key spawn, allowing doom and chex keys simultaneously
+// most maps should just use the vanilla key numbers for doom/chex quest
+// since those are the same between both games, and not dependent on this mod
+DoomEdNums
+{
+	// chex keys
+	29121 = "ChexRedCard"
+	29122 = "ChexBlueCard"
+	29123 = "ChexYellowCard"
+	29124 = "RedFlemKey"
+	29125 = "BlueFlemKey"
+	29126 = "YellowFlemKey"
+	// heretic keys
+	29127 = "KeyGreen"
+	29128 = "KeyBlue"
+	29129 = "KeyYellow"
+	// doom keys
+	29130 = "RedCard"
+	29131 = "BlueCard"
+	29132 = "YellowCard"
+	29133 = "RedSkull"
+	29134 = "BlueSkull"
+	29135 = "YellowSkull"
+	// I really don't want to include distinct editor values for every single
+	// doom and chex item that might "need" them. really just the keys
+	// what purpose is there in differentiating anything else anyway?
+	// in theory most cases where you want specific ones should be summons
+	// but that could be argued of keys too... what a pain. sighs wistfully
+}
+// TUNDRA WAS HERE
+// ^ code comment from a friend I showed this to. if you see this, say hi to her!
