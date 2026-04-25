@@ -1,14 +1,24 @@
-// duplicates zdoom's lock list, (not yet) modified to include chex quest keys.
+// ALL LOCKDEFS WIP CODE MOVED TO EXLOCKDEFS - COPY BACK HERE FOR TESTING ONLY
+// EXLOCKDEFS is to contain the extended lock definitions with separate keys
+// while this file will contain the simplified version for the player release
+
+// PASTE LOCKDEFS HERE FOR TESTING:
+
+// duplicates zdoom's lock list, modified to include chex quest keys. two vers.
+// the SIMPLIFIED LOCKDEFS: these are included with the patch mod as-released.
 // intended to replace chex quest's own LOCKDEFS with a more widely compatible
-// set of locks - allowing use of all key types featured in prior LOCKDEFS.
+// set of locks - allowing use of all key types in all relevant lock types.
+// the EXTENDED LOCKDEFS: released in a separate modder's resource package.
+// based on doom's default locks, but extended with distinct entries for both
+// chex quest keys and for heretic's prism keys. the EXTENDEDs were actually
+// made first, then SIMPLIFIED so that all doom and chex keys are equivalent.
+
 // setting up LANGUAGE entries for all of these is gonna be annoying...
-// TODO: cover extended edge cases (e.g. redcard redchex noskull noflem)
 // TODO: finalize advanced locks into modder resource and create simple locks
 
-// CLEARLOCKS // probably not needed? maybe include anyway
+// starting section: individual keys
 
-// for player-facing release, make these use Any { DoomKey ChexKey }
-Lock 1
+Lock 1 // doom red keycard
 {
 	RedCard
 	Message "$PD_REDC"
@@ -17,7 +27,7 @@ Lock 1
 }
 
 
-Lock 2
+Lock 2 // doom blue keycard
 {
 	BlueCard
 	Message "$PD_BLUEC"
@@ -26,7 +36,7 @@ Lock 2
 }
 
 
-Lock 3
+Lock 3 // doom yellow keycard
 {
 	YellowCard
 	Message "$PD_YELLOWC"
@@ -34,7 +44,7 @@ Lock 3
 	Mapcolor 255 255 0
 }
 
-Lock 4
+Lock 4 // doom red skull
 {
 	RedSkull
 	Message "$PD_REDS"
@@ -43,7 +53,7 @@ Lock 4
 }
 
 
-Lock 5
+Lock 5 // doom blue skull
 {
 	BlueSkull
 	Message "$PD_BLUES"
@@ -51,7 +61,7 @@ Lock 5
 	Mapcolor 0 0 255
 }
 
-Lock 6
+Lock 6 // doom yellow skull
 {
 	YellowSkull
 	Message "$PD_YELLOWS"
@@ -59,76 +69,70 @@ Lock 6
 	Mapcolor 255 255 0
 }
 
-// heretic prism keys, do not make equivalent with doom/chex keys
-Lock 7
+Lock 7 // heretic "red" prism key
 {
 	KeyGreen
 	Message "You need a green prism key for this door"
 	RemoteMessage "KeyGreen Remote Placeholder"
 }
 
-Lock 8
+Lock 8 // heretic blue prism key
 {
 	KeyBlue
 	Message "You need a blue prism key for this door"
 	RemoteMessage "KeyBlue Remote Placeholder"
 }
 
-Lock 9
+Lock 9 // heretic green prism key
 {
 	KeyYellow
 	Message "You need a yellow prism key for this door"
 	RemoteMessage "KeyYellow Remote Placeholder"
 }
 
-// chex key and flemkey locks
-// these will be provided as chex key only in modder resource LOCKDEFS.txt ver
-// alongside the normal lock values remaining doom key only as is vanilla
-// these will be duplicates of standard locks in player-facing wad release
-Lock 11
+Lock 11 // chex red key"card"
 {
 	ChexRedCard
 	Message "$PD_REDK"
 	RemoteMessage "$PD_REDKO"
 }
 
-Lock 12
+Lock 12 // chex blue key"card"
 {
 	ChexBlueCard
 	Message "$PD_BLUEK"
 	RemoteMessage "$PD_BLUEKO"
 }
 
-Lock 13
+Lock 13 // chex yellow key"card"
 {
 	ChexYellowCard
 	Message "$PD_YELLOWK"
 	RemoteMessage "$PD_YELLOWKO"
 }
-// flemkeys aren't highlighting in slade - they do work regardless
-Lock 14
+
+Lock 14 // chex red flemkey
 {
 	RedFlemKey
 	Message "$PD_REDF"
 	RemoteMessage "$PD_REDFO"
 }
 
-Lock 15
+Lock 15 // chex blue flemkey
 {
 	BlueFlemKey
 	Message "$PD_BLUEF"
 	RemoteMessage "$PD_BLUEFO"
 }
 
-Lock 16
+Lock 16 // chex yellow flemkey
 {
 	YellowFlemKey
 	Message "$PD_YELLOWF"
 	RemoteMessage "$PD_YELLOWFO"
 }
 
-// zdoom's default doom lock schema had the keys from heretic in several
-// of these next listings for some reason. this file expands on that
+// skipping to 100 to designate new section - key-group locks
 // sidenote, why does the zdoom wiki call them "prism keys"?
 // it's nice to have a name for them aside from just "key" or "heretic key",
 // but I wonder where the name "prism key" came from - it's not in the heretic
@@ -158,10 +162,7 @@ Lock 101 // doom all 6
 	RemoteMessage "$PD_ALL6O"
 }
 
-// skipped 102 because it's used for "this doesn't work" in the test maps I have
-// skilled 103 because overwriting the strife lock feels like bad luck
-
-Lock 104 // chex all 6
+Lock 102 // chex all 6
 {
 	ChexBlueCard
 	BlueFlemKey
@@ -170,6 +171,19 @@ Lock 104 // chex all 6
 	ChexRedCard
 	RedFlemKey
 	Message "CHEX ALL 6"
+}
+
+// skipped 103 because overwriting the strife lock feels like bad luck
+
+Lock 104 // generic all 6
+{
+	Any { BlueCard ChexBlueCard }
+	Any { BlueSkull BlueFlemKey }
+	Any { YellowCard ChexYellowCard }
+	Any { YellowSkull YellowFlemKey }
+	Any { RedCard ChexRedCard }
+	Any { RedSkull RedFlemKey }
+	Message "GENERIC ALL 6"
 }
 
 Lock 105 // doom "all 9", like an all 6 but with heretic keys
@@ -186,7 +200,7 @@ Lock 105 // doom "all 9", like an all 6 but with heretic keys
 	Message "ALL 9 DOOM KEY DOOR"
 }
 
-Lock 106 // chex ver"all 9", like 101 but with heretic keys
+Lock 106 // chex "all 9", like an all 6 but with heretic keys
 {
 	ChexBlueCard
 	BlueFlemKey
@@ -200,7 +214,111 @@ Lock 106 // chex ver"all 9", like 101 but with heretic keys
 	Message "ALL 9 CHEX KEY DOOR"
 }
 
-Lock 129
+Lock 107 // generic all 9
+{
+	Any { BlueCard ChexBlueCard }
+	Any { BlueSkull BlueFlemKey }
+	KeyBlue
+	Any { YellowCard ChexYellowCard }
+	Any { YellowSkull YellowFlemKey }
+	KeyYellow
+	Any { RedCard ChexRedCard }
+	Any { RedSkull RedFlemKey }
+	KeyGreen
+	Message "ALL 9 GENERIC KEY DOOR"
+}
+
+Lock 108 // "all 12" lock, requiring every doom and chex key
+{
+	BlueCard
+	ChexBlueCard
+	BlueSkull
+	BlueFlemKey
+	YellowCard
+	ChexYellowCard
+	YellowSkull
+	YellowFlemKey
+	RedCard
+	ChexRedCard
+	RedSkull
+	RedFlemKey
+	Message "ALL 12"
+}
+
+Lock 109 // "all 15" lock, extention of 108 to include prism keys - this is every key
+{
+	BlueCard
+	ChexBlueCard
+	BlueSkull
+	BlueFlemKey
+	KeyBlue
+	YellowCard
+	ChexYellowCard
+	YellowSkull
+	YellowFlemKey
+	KeyYellow
+	RedCard
+	ChexRedCard
+	RedSkull
+	RedFlemKey
+	KeyGreen
+	Message "ALL 15"
+}
+
+// skipping to 115 to designate new section - keytype-filtered locks
+// technically speaking the lock at 100 should be here. but moving it out of
+// numerical order from how it was set in the original game feels wrong to do
+
+Lock 115 // any doom keycard
+{
+	Any { RedCard BlueCard YellowCard }
+	Message "UAC ANYCOLOR"
+}
+
+Lock 116 // any doom skull
+{
+	Any { RedSkull BlueSkull YellowSkull }
+	Message "SKULL ANYCOLOR"
+}
+
+Lock 117 // any chex keycard (hey look it's the halo number)
+{
+	Any { ChexRedCard ChexBlueCard ChexYellowCard }
+	Message "IFC ANYCOLOR"
+}
+
+Lock 118 // any chex flemkey
+{
+	Any { RedFlemKey BlueFlemKey YellowFlemKey }
+	Message "FLEM ANYCOLOR"
+}
+
+Lock 119 // any prism key
+{
+	Any { KeyGreen KeyBlue KeyYellow }
+	Message "PRISM ANYCOLOR"
+}
+
+Lock 120 // any type 1 key
+{
+	Any { RedCard ChexRedCard BlueCard ChexBlueCard YellowCard ChexYellowCard }
+	Message "FRIENDLY ANY"
+}
+
+Lock 121 // any type 2 key
+{
+	Any { RedSkull RedFlemKey BlueSkull BlueFlemKey YellowSkull YellowFlemKey }
+	Message "ENEMY ANY"
+}
+
+Lock 122 // any non-prism key
+{
+	// this feels unneccessary and excessive. why am I doing this? what's the point?? who would USE this??? it's just the generic anykey from lock 100 but with the prism keys removed!!!
+	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey RedCard ChexRedCard RedSkull RedFlemKey YellowCard ChexYellowCard YellowSkull YellowFlemKey }
+
+// skipping to 129 to designate new section - one-color locks
+
+Lock 129 // any red key
 {
 	// includes doom + heretic keys in vanilla, added chex quest color matching
 	Any { RedCard ChexRedCard RedSkull RedFlemKey KeyGreen }
@@ -210,7 +328,7 @@ Lock 129
 }
 
 
-Lock 130
+Lock 130 // any blue key
 {
 	// includes doom + heretic keys in vanilla, added chex quest color matching
 	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey KeyBlue }
@@ -220,7 +338,7 @@ Lock 130
 }
 
 
-Lock 131
+Lock 131 // any yellow key
 {
 	// includes doom + heretic keys in vanilla, added chex quest color matching
 	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey KeyYellow }
@@ -276,13 +394,236 @@ Lock 137 // chex yellows only
 	RemoteMessage "CHEXYELLOW ANY REMOTE"
 }
 
-// Lock 201 reserved as a shoutout to the green keycard map of kappes, who
-// helped me figure out how to implement the heretic keys fully into doom
+Lock 138 // any non-prism red key
+{
+	Any { RedCard ChexRedCard RedSkull RedFlemKey }
+	Message "$PD_REDK"
+	RemoteMessage "$PD_REDO"
+	Mapcolor 255 0 0
+}
+
+
+Lock 139 // any non-prism blue key
+{
+	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey }
+	Message "$PD_BLUEK"
+	RemoteMessage "$PD_BLUEO"
+	Mapcolor 0 0 255
+}
+
+
+Lock 140 // any non-prism yellow key
+{
+	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey }
+	Message "$PD_YELLOWK"
+	RemoteMessage "$PD_YELLOWO"
+	Mapcolor 255 255 0
+}
+
+// skipping to 142 to designate new section - two-color locks
+
+Lock 142 // red-blue keycard
+{
+	RedCard
+	BlueCard
+	Message "REDBLUE CARD"
+}
+
+Lock 143 // red-yellow keycard
+{
+	RedCard
+	YellowCard
+	Message "REDYELLOW CARD"
+}
+
+Lock 144 // blue-yellow keycard
+{
+	BlueCard
+	YellowCard
+	Message "BLUEYELLOW CARD"
+}
+
+Lock 145 // red-blue skull
+{
+	RedSkull
+	BlueSkull
+	Message "REDBLUE SKULL"
+}
+
+Lock 146 // red-yellow skull
+{
+	RedSkull
+	YellowSkull
+	Message "REDYELLOW SKULL"
+}
+
+Lock 147 // blue-yellow skull
+{
+	BlueSkull
+	YellowSkull
+	Message "BLUEYELLOW SKULL"
+}
+
+Lock 148 // red-blue chexkey
+{
+	ChexRedCard
+	ChexBlueCard
+	Message "REDBLUE CHEX"
+}
+
+Lock 149 // red-yellow chexkey
+{
+	ChexRedCard
+	ChexYellowCard
+	Message "REDYELLOW CHEX"
+}
+
+Lock 150 // blue-yellow chexkey
+{
+	ChexBlueCard
+	ChexYellowCard
+	Message "BLUEYELLOW CHEX"
+}
+
+Lock 151 // red-blue flem
+{
+	RedFlemKey
+	BlueFlemKey
+	Message "REDBLUE FLEM"
+}
+
+Lock 152 // red-yellow flem
+{
+	RedFlemKey
+	YellowFlemKey
+	Message "REDYELLOW FLEM"
+}
+
+Lock 153 // blue-yellow flem
+{
+	BlueFlemKey
+	YellowFlemKey
+	Message "BLUEYELLOW FLEM"
+}
+
+Lock 154 // red-blue prism
+{
+	KeyGreen
+	KeyBlue
+	Message "REDBLUE PRISM"
+}
+
+Lock 155 // red-yellow prism
+{
+	KeyGreen
+	KeyYellow
+	Message "REDYELLOW PRISM"
+}
+
+Lock 156 // blue-yellow prism
+{
+	KeyBlue
+	KeyYellow
+	Message "BLUEYELLOW PRISM"
+}
+
+Lock 157 // red-blue type 1 keys
+{
+	Any { RedCard ChexRedCard }
+	Any { BlueCard ChexBlueCard }
+	Message "REDBLUE TYPE 1"
+}
+
+Lock 158 // red-yellow type 1 keys
+{
+	Any { RedCard ChexRedCard }
+	Any { YellowCard ChexYellowCard }
+	Message "REDYELLOW TYPE 1"
+}
+
+Lock 159 // blue-yellow type 1 keys
+{
+	Any { BlueCard ChexBlueCard }
+	Any { YellowCard ChexYellowCard }
+	Message "BLUEYELLOW TYPE 1"
+}
+
+Lock 160 // red-blue type 2 keys
+{
+	Any { RedSkull RedFlemKey }
+	Any { BlueSkull BlueFlemKey }
+	Message "REDBLUE TYPE 2"
+}
+
+Lock 161 // red-yellow type 2 keys
+{
+	Any { RedSkull RedFlemKey }
+	Any { YellowSkull YellowFlemKey }
+	Message "REDYELLOW TYPE 2"
+}
+
+Lock 162 // blue-yellow type 2 keys
+{
+	Any { BlueSkull BlueFlemKey }
+	Any { YellowSkull YellowFlemKey }
+	Message "BLUEYELLOW TYPE 2"
+}
+
+Lock 163 // red-blue doomchex
+{
+	Any { RedCard ChexRedCard RedSkull RedFlemKey }
+	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey }
+	Message "REDBLUE DOOMCHEX"
+}
+
+Lock 164 // red-yellow doomchex
+{
+	Any { RedCard ChexRedCard RedSkull RedFlemKey }
+	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey }
+	Message "REDYELLOW DOOMCHEX"
+}
+
+Lock 165 // blue-yellow doomchex
+{
+	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey }
+	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey }
+	Message "BLUEYELLOW DOOMCHEX"
+}
+
+Lock 166 // red-blue generic
+{
+	Any { RedCard ChexRedCard RedSkull RedFlemKey KeyGreen }
+	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey KeyBlue }
+	Message "REDBLUE GENERIC"
+}
+
+Lock 167 // red-yellow generic
+{
+	Any { RedCard ChexRedCard RedSkull RedFlemKey KeyGreen }
+	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey KeyYellow }
+	Message "REDYELLOW GENERIC"
+}
+
+Lock 168 // blue-yellow generic
+{
+	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey KeyBlue }
+	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey KeyYellow }
+	Message "BLUEYELLOW GENERIC"
+}
+
+// Lock 201 reserved as a shoutout to the green keycard map of kappes buur
+Lock 201
+{
+	Message "shoutout kappes buur on the zdoom forums for helping me get these keys working!"
+}
+// they helped me figure out how to implement the heretic keys fully into doom
 // the tutorials kappes linked to me (and their associated maps) are found here:
 // https://kappes.drdteam.org/NEW_KEY/new%20key.htm (aforementioned green keycard)
 // https://kappes.drdteam.org/LAVAPOT/lavapot.htm (how to use heretic stuff in doom)
 
-Lock 229 // generic all 3, includes heretic keys in vanilla
+// skipping to 229 to designate new section - tri-color locks
+
+Lock 229 // generic all 3
 {
 	Any { BlueCard BlueSkull KeyBlue }
 	Any { YellowCard YellowSkull KeyYellow }
@@ -316,4 +657,61 @@ Lock 232 // heretic all 3
 	KeyGreen
 	Message "PRISM ALL3"
 	RemoteMessage "PRISM ALL3 REMOTE"
+}
+
+// include type 1 (friendly key) locks vs type 2 (enemy key) locks?
+// what and how many would that add? let's count them out first
+// doom keycard 3, doom skullkey 3, chex keycard 3, chex flemkey 3,
+// doomchex keycard 3, doomchex skullkey 3... six new locks just for this...
+
+Lock 233 // doom keycard all3
+{
+	BlueCard
+	YellowCard
+	RedCard
+	Message "UAC ALL3"
+}
+
+Lock 234 // chex key all3
+{
+	ChexBlueCard
+	ChexYellowCard
+	ChexRedCard
+	Message "IFC ALL3"
+}
+
+Lock 235 // type 1 key (friendly) all3
+{
+	Any { BlueCard ChexBlueCard }
+	Any { YellowCard ChexYellowCard }
+	Any { RedCard ChexRedCard }
+	Message "FRIENDLY ALL3"
+}
+
+// this already creates 3 locks that'll be identical in player-facing...
+// and mostly only get used separately by maps/campaigns with 12-15 keys per map
+// which. seems like a bad fucking idea. 6 already allows for advanced mazes
+
+Lock 236 // doom skullkey all3
+{
+	BlueSkull
+	YellowSkull
+	RedSkull
+	Message "SKULL ALL3"
+}
+
+Lock 237 // chex flemkey all3 (these lock numbers are getting up there)
+{
+	BlueFlemKey
+	YellowFlemKey
+	RedFlemKey
+	Message "FLEM ALL3"
+}
+
+Lock 238 // type 2 key (enemy) all3
+{
+	Any { BlueSkull BlueFlemKey }
+	Any { YellowSkull YellowFlemKey }
+	Any { RedSkull RedFlemKey }
+	Message "ENEMY ALL3"
 }
