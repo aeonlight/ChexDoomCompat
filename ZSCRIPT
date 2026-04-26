@@ -3,6 +3,8 @@ version "4.14.3"
 // #include "WEAPSLOT" // script intended to combine weapon lists. doesn't work.
 #include "HYBRDPLR" // adds a custom playerclass as an alternative to above idea
 #include "ZDECOITM" // script intended to create cq3 deco items before cq3 can
+
+// TODO: try condensing these all into one event handler
 class ChexKeyPatcher : EventHandler
 {
 	override void CheckReplacement(ReplaceEvent ChexKeyPatch)
@@ -69,9 +71,21 @@ class ChexPickupPatcher : EventHandler
 	override void CheckReplacement(ReplaceEvent ChexGrabPatch)
 	{
 		// replaces the chex pickups that aren't keys or weapons/ammo with doom
-		if (ChexGrabPatch.Replacee == 'ZorchPack' && ChexPickupReplace == 1)
+		if (ChexGrabPatch.Replacee == 'MegaSphereChex' && ChexPickupReplace == 1)
 		{
-			ChexGrabPatch.Replacement = 'Backpack';
+			ChexGrabPatch.Replacement = 'MegaSphere';
+		}
+		if (ChexGrabPatch.Replacee == 'BlurShpereChex' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'BlurSphere';
+		}
+		if (ChexGrabPatch.Replacee == 'InvulnerabilitySphereChex' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'InvulnerabilitySphere';
+		}
+		if (ChexGrabPatch.Replacee == 'BerserkChex' && ChexPickupReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'Berserk';
 		}
 		if (ChexGrabPatch.Replacee == 'ComputerAreaMap' && ChexPickupReplace == 1)
 		{
@@ -114,9 +128,21 @@ class ChexPickupPatcher : EventHandler
 			ChexGrabPatch.Replacement = 'Soulsphere';
 		}
 		// replaces the doom pickups that aren't keys or weapons/ammo with chex
-		if (ChexGrabPatch.Replacee == 'Backpack' && ChexPickupReplace == 2)
+		if (ChexGrabPatch.Replacee == 'MegaSphere' && ChexPickupReplace == 2)
 		{
-			ChexGrabPatch.Replacement = 'ZorchPack';
+			ChexGrabPatch.Replacement = 'MegaSphereChex';
+		}
+		if (ChexGrabPatch.Replacee == 'BlurShpere' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'BlurSphereChex';
+		}
+		if (ChexGrabPatch.Replacee == 'InvulnerabilitySphere' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'InvulnerabilitySphereChex';
+		}
+		if (ChexGrabPatch.Replacee == 'Berserk' && ChexPickupReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'BerserkChex';
 		}
 		if (ChexGrabPatch.Replacee == 'Allmap' && ChexPickupReplace == 2)
 		{
@@ -166,6 +192,10 @@ class ChexAmmoPatcher : EventHandler
 	override void CheckReplacement(ReplaceEvent ChexAmmoPatch)
 	{
 		// replaces chex ammo drops with doom equivalents
+		if (ChexGrabPatch.Replacee == 'ZorchPack' && ChexAmmoReplace == 1)
+		{
+			ChexGrabPatch.Replacement = 'Backpack';
+		}
 		if (ChexAmmoPatch.Replacee == 'MiniZorchRecharge' && ChexAmmoReplace == 1)
 		{
 			ChexAmmoPatch.Replacement = 'Clip';
@@ -199,6 +229,10 @@ class ChexAmmoPatcher : EventHandler
 			ChexAmmoPatch.Replacement = 'CellPack';
 		}
 		// replaces doom ammo drops with chex equivalents (who would need this?)
+		if (ChexGrabPatch.Replacee == 'Backpack' && ChexAmmoReplace == 2)
+		{
+			ChexGrabPatch.Replacement = 'ZorchPack';
+		}
 		if (ChexAmmoPatch.Replacee == 'Clip' && ChexAmmoReplace == 2)
 		{
 			ChexAmmoPatch.Replacement = 'MiniZorchRecharge';

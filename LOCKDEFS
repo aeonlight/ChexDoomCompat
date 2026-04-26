@@ -1,9 +1,3 @@
-// ALL LOCKDEFS WIP CODE MOVED TO EXLOCKDEFS - COPY BACK HERE FOR TESTING ONLY
-// EXLOCKDEFS is to contain the extended lock definitions with separate keys
-// while this file will contain the simplified version for the player release
-
-// PASTE LOCKDEFS HERE FOR TESTING:
-
 // duplicates zdoom's lock list, modified to include chex quest keys. two vers.
 // the SIMPLIFIED LOCKDEFS: these are included with the patch mod as-released.
 // intended to replace chex quest's own LOCKDEFS with a more widely compatible
@@ -72,43 +66,43 @@ Lock 6 // doom yellow skull
 Lock 7 // heretic "red" prism key
 {
 	KeyGreen
-	Message "You need a green prism key for this door"
-	RemoteMessage "KeyGreen Remote Placeholder"
+	Message "$TXT_NEEDGREENKEY"
+	RemoteMessage "$TXT_NEEDGREENKEYO"
 }
 
 Lock 8 // heretic blue prism key
 {
 	KeyBlue
-	Message "You need a blue prism key for this door"
-	RemoteMessage "KeyBlue Remote Placeholder"
+	Message "$TXT_NEEDBLUEKEY"
+	RemoteMessage "$TXT_NEEDBLUEKEYO"
 }
 
 Lock 9 // heretic green prism key
 {
 	KeyYellow
-	Message "You need a yellow prism key for this door"
-	RemoteMessage "KeyYellow Remote Placeholder"
+	Message "$TXT_NEEDYELLOWKEY"
+	RemoteMessage "$TXT_NEEDYELLOWKEYO"
 }
 
 Lock 11 // chex red key"card"
 {
 	ChexRedCard
-	Message "$PD_REDK"
-	RemoteMessage "$PD_REDKO"
+	Message "$PD_REDQ"
+	RemoteMessage "$PD_REDQO"
 }
 
 Lock 12 // chex blue key"card"
 {
 	ChexBlueCard
-	Message "$PD_BLUEK"
-	RemoteMessage "$PD_BLUEKO"
+	Message "$PD_BLUEQ"
+	RemoteMessage "$PD_BLUEQO"
 }
 
 Lock 13 // chex yellow key"card"
 {
 	ChexYellowCard
-	Message "$PD_YELLOWK"
-	RemoteMessage "$PD_YELLOWKO"
+	Message "$PD_YELLOWQ"
+	RemoteMessage "$PD_YELLOWQO"
 }
 
 Lock 14 // chex red flemkey
@@ -142,8 +136,8 @@ Lock 100 // any key door
 {
 	// I hate how long this is
 	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey KeyBlue RedCard ChexRedCard RedSkull RedFlemKey KeyGreen YellowCard ChexYellowCard YellowSkull YellowFlemKey KeyYellow }
-	Message "Any key will open this door"
-	RemoteMessage "Any key will activate this object"
+	Message "$PD_ANY"
+	RemoteMessage "$PD_ANYOBJ"
 	Mapcolor 128 128 255
 }
 
@@ -170,7 +164,8 @@ Lock 102 // chex all 6
 	YellowFlemKey
 	ChexRedCard
 	RedFlemKey
-	Message "CHEX ALL 6"
+	Message "$PD_ALL6Q"
+	RemoteMessage "$PD_ALL6QO"
 }
 
 // skipped 103 because overwriting the strife lock feels like bad luck
@@ -183,7 +178,8 @@ Lock 104 // generic all 6
 	Any { YellowSkull YellowFlemKey }
 	Any { RedCard ChexRedCard }
 	Any { RedSkull RedFlemKey }
-	Message "GENERIC ALL 6"
+	Message "$PD_ALL6G"
+	RemoteMessage "$PD_ALL6GO"
 }
 
 Lock 105 // doom "all 9", like an all 6 but with heretic keys
@@ -197,7 +193,8 @@ Lock 105 // doom "all 9", like an all 6 but with heretic keys
 	RedCard
 	RedSkull
 	KeyGreen
-	Message "ALL 9 DOOM KEY DOOR"
+	Message "$PD_ALL9"
+	RemoteMessage "$PD_ALL9O"
 }
 
 Lock 106 // chex "all 9", like an all 6 but with heretic keys
@@ -211,7 +208,8 @@ Lock 106 // chex "all 9", like an all 6 but with heretic keys
 	ChexRedCard
 	RedFlemKey
 	KeyGreen
-	Message "ALL 9 CHEX KEY DOOR"
+	Message "$PD_ALL9Q"
+	RemoteMessage "$PD_ALL9QO"
 }
 
 Lock 107 // generic all 9
@@ -225,7 +223,8 @@ Lock 107 // generic all 9
 	Any { RedCard ChexRedCard }
 	Any { RedSkull RedFlemKey }
 	KeyGreen
-	Message "ALL 9 GENERIC KEY DOOR"
+	Message "$PD_ALL9G"
+	RemoteMessage "$PD_ALL9GO"
 }
 
 Lock 108 // "all 12" lock, requiring every doom and chex key
@@ -242,7 +241,8 @@ Lock 108 // "all 12" lock, requiring every doom and chex key
 	ChexRedCard
 	RedSkull
 	RedFlemKey
-	Message "ALL 12"
+	Message "$PD_ALL12"
+	RemoteMessage "$PD_ALL12O"
 }
 
 Lock 109 // "all 15" lock, extention of 108 to include prism keys - this is every key
@@ -262,7 +262,8 @@ Lock 109 // "all 15" lock, extention of 108 to include prism keys - this is ever
 	RedSkull
 	RedFlemKey
 	KeyGreen
-	Message "ALL 15"
+	Message "$PD_ALL15"
+	RemoteMessage "$PD_ALL15O"
 }
 
 // skipping to 115 to designate new section - keytype-filtered locks
@@ -637,8 +638,8 @@ Lock 230 // chex all 3
 	Any { ChexBlueCard BlueFlemKey }
 	Any { ChexYellowCard YellowFlemKey }
 	Any { ChexRedCard RedFlemKey }
-	Message "CHEX ALL3"
-	RemoteMessage "CHEX ALL3 REMOTE"
+	Message "$PD_ALL3Q"
+	RemoteMessage "$PD_ALL3QO"
 }
 
 Lock 231 // doom all 3
@@ -646,8 +647,8 @@ Lock 231 // doom all 3
 	Any { BlueCard BlueSkull }
 	Any { YellowCard YellowSkull }
 	Any { RedCard RedSkull }
-	Message "DOOM ALL3"
-	RemoteMessage "DOOM ALL3 REMOTE"
+	Message "$PD_ALL3G"
+	RemoteMessage "$PD_ALL3GO"
 }
 
 Lock 232 // heretic all 3
@@ -655,8 +656,8 @@ Lock 232 // heretic all 3
 	KeyBlue
 	KeyYellow
 	KeyGreen
-	Message "PRISM ALL3"
-	RemoteMessage "PRISM ALL3 REMOTE"
+	Message "$TXT_ALL3"
+	RemoteMessage "$TXT_ALL3O"
 }
 
 // include type 1 (friendly key) locks vs type 2 (enemy key) locks?

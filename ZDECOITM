@@ -6,32 +6,71 @@ class RedFlemKey : RedSkull
 {
 	Default
 	{
-		Inventory.Pickupmessage "$GOTREDFLEM";
+		Inventory.PickupMessage "$GOTREDFLEM";
 	}
 }
 class YellowFlemKey : YellowSkull
 {
 	Default
 	{
-		Inventory.Pickupmessage "$GOTYELLOWFLEM";
+		Inventory.PickupMessage "$GOTYELLOWFLEM";
 	}
 }
 class BlueFlemKey : BlueSkull
 {
 	Default
 	{
-		Inventory.Pickupmessage "$GOTBLUEFLEM";
+		Inventory.PickupMessage "$GOTBLUEFLEM";
 	}
 }
 class UltraGoggles : Infrared
 {
 	Default
 	{
-		Inventory.Pickupmessage "$GOTGOGGLES";
+		Inventory.PickupMessage "$GOTGOGGLES";
 	}
 	States
 	{
 	Spawn:
 		PVIS AB 6 Bright;
 	}	
+}
+
+// additionally creates "chex" versions of the four doom pickups chex doesn't
+// have - invuln, berserk, and invis all load doom w/ no sprites in cq, and
+// megasphere is from doom 2 and thus doesn't exist in chex quest at all
+// these entries are just for the sake of completeness
+
+// TODO: add these to replacer toggles
+
+class MegaSphereChex : MegaSphere
+{
+	Default
+	{
+		Inventory.PickupMessage "$GOTMSPHERECHEX";
+	}
+}
+
+class BlurSphereChex : BlurSphere
+{
+	Default
+	{
+		Inventory.PickupMessage "$GOTINVISCHEX";
+	}
+}
+
+class InvulnerabilitySphereChex : InvulnerabilitySphere
+{
+	Default
+	{
+		Inventory.PickupMessage "$GOTINVULCHEX";
+	}
+}
+
+class BerserkChex : Berserk
+{
+	Default
+	{
+		Inventory.PickupMessage "$GOTBERSERKCHEX";
+	}
 }
