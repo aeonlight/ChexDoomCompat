@@ -75,7 +75,7 @@ class ChexPickupPatcher : EventHandler
 		{
 			ChexGrabPatch.Replacement = 'MegaSphere';
 		}
-		if (ChexGrabPatch.Replacee == 'BlurShpereChex' && ChexPickupReplace == 1)
+		if (ChexGrabPatch.Replacee == 'BlurSphereChex' && ChexPickupReplace == 1)
 		{
 			ChexGrabPatch.Replacement = 'BlurSphere';
 		}
@@ -132,7 +132,7 @@ class ChexPickupPatcher : EventHandler
 		{
 			ChexGrabPatch.Replacement = 'MegaSphereChex';
 		}
-		if (ChexGrabPatch.Replacee == 'BlurShpere' && ChexPickupReplace == 2)
+		if (ChexGrabPatch.Replacee == 'BlurSphere' && ChexPickupReplace == 2)
 		{
 			ChexGrabPatch.Replacement = 'BlurSphereChex';
 		}
@@ -192,9 +192,9 @@ class ChexAmmoPatcher : EventHandler
 	override void CheckReplacement(ReplaceEvent ChexAmmoPatch)
 	{
 		// replaces chex ammo drops with doom equivalents
-		if (ChexGrabPatch.Replacee == 'ZorchPack' && ChexAmmoReplace == 1)
+		if (ChexAmmoPatch.Replacee == 'ZorchPack' && ChexAmmoReplace == 1)
 		{
-			ChexGrabPatch.Replacement = 'Backpack';
+			ChexAmmoPatch.Replacement = 'Backpack';
 		}
 		if (ChexAmmoPatch.Replacee == 'MiniZorchRecharge' && ChexAmmoReplace == 1)
 		{
@@ -229,9 +229,9 @@ class ChexAmmoPatcher : EventHandler
 			ChexAmmoPatch.Replacement = 'CellPack';
 		}
 		// replaces doom ammo drops with chex equivalents (who would need this?)
-		if (ChexGrabPatch.Replacee == 'Backpack' && ChexAmmoReplace == 2)
+		if (ChexAmmoPatch.Replacee == 'Backpack' && ChexAmmoReplace == 2)
 		{
-			ChexGrabPatch.Replacement = 'ZorchPack';
+			ChexAmmoPatch.Replacement = 'ZorchPack';
 		}
 		if (ChexAmmoPatch.Replacee == 'Clip' && ChexAmmoReplace == 2)
 		{

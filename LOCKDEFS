@@ -87,22 +87,22 @@ Lock 9 // heretic green prism key
 Lock 11 // chex red key"card"
 {
 	ChexRedCard
-	Message "$PD_REDQ"
-	RemoteMessage "$PD_REDQO"
+	Message "$PD_REDN"
+	RemoteMessage "$PD_REDNO"
 }
 
 Lock 12 // chex blue key"card"
 {
 	ChexBlueCard
-	Message "$PD_BLUEQ"
-	RemoteMessage "$PD_BLUEQO"
+	Message "$PD_BLUEN"
+	RemoteMessage "$PD_BLUENO"
 }
 
 Lock 13 // chex yellow key"card"
 {
 	ChexYellowCard
-	Message "$PD_YELLOWQ"
-	RemoteMessage "$PD_YELLOWQO"
+	Message "$PD_YELLOWN"
+	RemoteMessage "$PD_YELLOWNO"
 }
 
 Lock 14 // chex red flemkey
@@ -178,8 +178,8 @@ Lock 104 // generic all 6
 	Any { YellowSkull YellowFlemKey }
 	Any { RedCard ChexRedCard }
 	Any { RedSkull RedFlemKey }
-	Message "$PD_ALL6G"
-	RemoteMessage "$PD_ALL6GO"
+	Message "$PD_ALL6D" // uses D for doom because doom's listing here uses
+	RemoteMessage "$PD_ALL6DO" // the normal generic listing
 }
 
 Lock 105 // doom "all 9", like an all 6 but with heretic keys
@@ -193,8 +193,8 @@ Lock 105 // doom "all 9", like an all 6 but with heretic keys
 	RedCard
 	RedSkull
 	KeyGreen
-	Message "$PD_ALL9"
-	RemoteMessage "$PD_ALL9O"
+	Message "$PD_ALL9D"
+	RemoteMessage "$PD_ALL9DO"
 }
 
 Lock 106 // chex "all 9", like an all 6 but with heretic keys
@@ -223,8 +223,8 @@ Lock 107 // generic all 9
 	Any { RedCard ChexRedCard }
 	Any { RedSkull RedFlemKey }
 	KeyGreen
-	Message "$PD_ALL9G"
-	RemoteMessage "$PD_ALL9GO"
+	Message "$PD_ALL9"
+	RemoteMessage "$PD_ALL9O"
 }
 
 Lock 108 // "all 12" lock, requiring every doom and chex key
@@ -273,49 +273,59 @@ Lock 109 // "all 15" lock, extention of 108 to include prism keys - this is ever
 Lock 115 // any doom keycard
 {
 	Any { RedCard BlueCard YellowCard }
-	Message "UAC ANYCOLOR"
+	Message "$PD_ANYC"
+	RemoteMessage "$PD_ANYCO"
 }
 
 Lock 116 // any doom skull
 {
 	Any { RedSkull BlueSkull YellowSkull }
-	Message "SKULL ANYCOLOR"
+	Message "$PD_ANYS"
+	RemoteMessage "$PD_ANYSO"
 }
 
 Lock 117 // any chex keycard (hey look it's the halo number)
 {
 	Any { ChexRedCard ChexBlueCard ChexYellowCard }
-	Message "IFC ANYCOLOR"
+	Message "$PD_ANYN"
+	RemoteMessage "$PD_ANYNO"
 }
 
 Lock 118 // any chex flemkey
 {
 	Any { RedFlemKey BlueFlemKey YellowFlemKey }
-	Message "FLEM ANYCOLOR"
+	Message "$PD_ANYF"
+	RemoteMessage "$PD_ANYFO"
 }
 
 Lock 119 // any prism key
 {
 	Any { KeyGreen KeyBlue KeyYellow }
-	Message "PRISM ANYCOLOR"
+	Message "$TXT_ANY"
+	RemoteMessage "$TXT_ANYO"
 }
 
 Lock 120 // any type 1 key
 {
 	Any { RedCard ChexRedCard BlueCard ChexBlueCard YellowCard ChexYellowCard }
-	Message "FRIENDLY ANY"
+	Message "$PD_ANYH"
+	RemoteMessage "$PD_ANYHO"
 }
 
 Lock 121 // any type 2 key
 {
 	Any { RedSkull RedFlemKey BlueSkull BlueFlemKey YellowSkull YellowFlemKey }
-	Message "ENEMY ANY"
+	Message "$PD_ANYA"
+	RemoteMessage "$PD_ANYAO"
 }
 
 Lock 122 // any non-prism key
 {
 	// this feels unneccessary and excessive. why am I doing this? what's the point?? who would USE this??? it's just the generic anykey from lock 100 but with the prism keys removed!!!
 	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey RedCard ChexRedCard RedSkull RedFlemKey YellowCard ChexYellowCard YellowSkull YellowFlemKey }
+	Message "$NP_ANY"
+	RemoteMessage "$NP_ANYO"
+}
 
 // skipping to 129 to designate new section - one-color locks
 
@@ -351,8 +361,8 @@ Lock 131 // any yellow key
 Lock 132 // doom reds only
 {
 	Any { RedCard RedSkull }
-	Message "$PD_REDK"
-	RemoteMessage "$PD_REDO"
+	Message "$PD_REDDK"
+	RemoteMessage "$PD_REDDKO"
 	Mapcolor 255 0 0
 }
 
@@ -360,8 +370,8 @@ Lock 132 // doom reds only
 Lock 133 // doom blues only
 {
 	Any { BlueCard BlueSkull }
-	Message "$PD_BLUEK"
-	RemoteMessage "$PD_BLUEO"
+	Message "$PD_BLUEDK"
+	RemoteMessage "$PD_BLUEDKO"
 	Mapcolor 0 0 255
 }
 
@@ -369,37 +379,37 @@ Lock 133 // doom blues only
 Lock 134 // doom yellows only
 {
 	Any { YellowCard YellowSkull }
-	Message "$PD_YELLOWK"
-	RemoteMessage "$PD_YELLOWO"
+	Message "$PD_YELLOWDK"
+	RemoteMessage "$PD_YELLOWDKO"
 	Mapcolor 255 255 0
 }
 
 Lock 135 // chex reds only
 {
 	Any { ChexRedCard RedFlemKey }
-	Message "CHEXRED ANY"
-	RemoteMessage "CHEXRED ANY REMOTE"
+	Message "$PD_REDQK"
+	RemoteMessage "$PD_REDQKO"
 }
 
 Lock 136 // chex blues only
 {
 	Any { ChexBlueCard BlueFlemKey }
-	Message "CHEXBLUE ANY"
-	RemoteMessage "CHEXBLUE ANY REMOTE"
+	Message "$PD_BLUEQK"
+	RemoteMessage "$PD_BLUEQKO"
 }
 
 Lock 137 // chex yellows only
 {
 	Any { ChexYellowCard YellowFlemKey }
-	Message "CHEXYELLOW ANY"
-	RemoteMessage "CHEXYELLOW ANY REMOTE"
+	Message "$PD_YELLOWQK"
+	RemoteMessage "$PD_YELLOWQKO"
 }
 
 Lock 138 // any non-prism red key
 {
 	Any { RedCard ChexRedCard RedSkull RedFlemKey }
-	Message "$PD_REDK"
-	RemoteMessage "$PD_REDO"
+	Message "$NP_REDK"
+	RemoteMessage "$NP_REDKO"
 	Mapcolor 255 0 0
 }
 
@@ -407,8 +417,8 @@ Lock 138 // any non-prism red key
 Lock 139 // any non-prism blue key
 {
 	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey }
-	Message "$PD_BLUEK"
-	RemoteMessage "$PD_BLUEO"
+	Message "$NP_BLUEK"
+	RemoteMessage "$NP_BLUEKO"
 	Mapcolor 0 0 255
 }
 
@@ -416,8 +426,8 @@ Lock 139 // any non-prism blue key
 Lock 140 // any non-prism yellow key
 {
 	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey }
-	Message "$PD_YELLOWK"
-	RemoteMessage "$PD_YELLOWO"
+	Message "$NP_YELLOWK"
+	RemoteMessage "$NP_YELLOWKO"
 	Mapcolor 255 255 0
 }
 
@@ -427,194 +437,221 @@ Lock 142 // red-blue keycard
 {
 	RedCard
 	BlueCard
-	Message "REDBLUE CARD"
+	Message "$PD_REDBLUEC"
+	RemoteMessage "$PD_REDBLUECO"
 }
 
 Lock 143 // red-yellow keycard
 {
 	RedCard
 	YellowCard
-	Message "REDYELLOW CARD"
+	Message "$PD_REDYELLOWC"
+	RemoteMessage "$PD_REDYELLOWCO"
 }
 
 Lock 144 // blue-yellow keycard
 {
 	BlueCard
 	YellowCard
-	Message "BLUEYELLOW CARD"
+	Message "$PD_BLUEYELLOWC"
+	RemoteMessage "$PD_BLUEYELLOWCO"
 }
 
 Lock 145 // red-blue skull
 {
 	RedSkull
 	BlueSkull
-	Message "REDBLUE SKULL"
+	Message "$PD_REDBLUES"
+	RemoteMessage "$PD_REDBLUESO"
 }
 
 Lock 146 // red-yellow skull
 {
 	RedSkull
 	YellowSkull
-	Message "REDYELLOW SKULL"
+	Message "$PD_REDYELLOWS"
+	RemoteMessage "$PD_REDYELLOWSO"
 }
 
 Lock 147 // blue-yellow skull
 {
 	BlueSkull
 	YellowSkull
-	Message "BLUEYELLOW SKULL"
+	Message "$PD_BLUEYELLOWS"
+	RemoteMessage "$PD_BLUEYELLOWSO"
 }
 
 Lock 148 // red-blue chexkey
 {
 	ChexRedCard
 	ChexBlueCard
-	Message "REDBLUE CHEX"
+	Message "$PD_REDBLUEN"
+	RemoteMessage "$PD_REDBLUENO"
 }
 
 Lock 149 // red-yellow chexkey
 {
 	ChexRedCard
 	ChexYellowCard
-	Message "REDYELLOW CHEX"
+	Message "$PD_REDYELLOWN"
+	RemoteMessage "$PD_REDYELLOWNO"
 }
 
 Lock 150 // blue-yellow chexkey
 {
 	ChexBlueCard
 	ChexYellowCard
-	Message "BLUEYELLOW CHEX"
+	Message "$PD_BLUEYELLOWN"
+	RemoteMessage "$PD_BLUEYELLOWNO"
 }
 
 Lock 151 // red-blue flem
 {
 	RedFlemKey
 	BlueFlemKey
-	Message "REDBLUE FLEM"
+	Message "$PD_REDBLUEF"
+	RemoteMessage "$PD_REDBLUEFO"
 }
 
 Lock 152 // red-yellow flem
 {
 	RedFlemKey
 	YellowFlemKey
-	Message "REDYELLOW FLEM"
+	Message "$PD_REDYELLOWF"
+	RemoteMessage "$PD_REDYELLOWFO"
 }
 
 Lock 153 // blue-yellow flem
 {
 	BlueFlemKey
 	YellowFlemKey
-	Message "BLUEYELLOW FLEM"
+	Message "$PD_BLUEYELLOWF"
+	RemoteMessage "$PD_BLUEYELLOWFO"
 }
 
 Lock 154 // red-blue prism
 {
 	KeyGreen
 	KeyBlue
-	Message "REDBLUE PRISM"
+	Message "$TXT_REDBLUE"
+	RemoteMessage "$TXT_REDBLUEO"
 }
 
 Lock 155 // red-yellow prism
 {
 	KeyGreen
 	KeyYellow
-	Message "REDYELLOW PRISM"
+	Message "$TXT_REDYELLOW"
+	RemoteMessage "$TXT_REDYELLOWO"
 }
 
 Lock 156 // blue-yellow prism
 {
 	KeyBlue
 	KeyYellow
-	Message "BLUEYELLOW PRISM"
+	Message "$TXT_BLUEYELLOW"
+	RemoteMessage "$TXT_BLUEYELLOWO"
 }
 
 Lock 157 // red-blue type 1 keys
 {
 	Any { RedCard ChexRedCard }
 	Any { BlueCard ChexBlueCard }
-	Message "REDBLUE TYPE 1"
+	Message "$PD_REDBLUEH"
+	RemoteMessage "$PD_REDBLUEHO"
 }
 
 Lock 158 // red-yellow type 1 keys
 {
 	Any { RedCard ChexRedCard }
 	Any { YellowCard ChexYellowCard }
-	Message "REDYELLOW TYPE 1"
+	Message "$PD_REDYELLOWH"
+	RemoteMessage "$PD_REDYELLOWHO"
 }
 
 Lock 159 // blue-yellow type 1 keys
 {
 	Any { BlueCard ChexBlueCard }
 	Any { YellowCard ChexYellowCard }
-	Message "BLUEYELLOW TYPE 1"
+	Message "$PD_BLUEYELLOWH"
+	RemoteMessage "$PD_BLUEYELLOWHO"
 }
 
 Lock 160 // red-blue type 2 keys
 {
 	Any { RedSkull RedFlemKey }
 	Any { BlueSkull BlueFlemKey }
-	Message "REDBLUE TYPE 2"
+	Message "$PD_REDBLUEA"
+	RemoteMessage "$PD_REDBLUEAO"
 }
 
 Lock 161 // red-yellow type 2 keys
 {
 	Any { RedSkull RedFlemKey }
 	Any { YellowSkull YellowFlemKey }
-	Message "REDYELLOW TYPE 2"
+	Message "$PD_REDYELLOWA"
+	RemoteMessage "$PD_REDYELLOWAO"
 }
 
 Lock 162 // blue-yellow type 2 keys
 {
 	Any { BlueSkull BlueFlemKey }
 	Any { YellowSkull YellowFlemKey }
-	Message "BLUEYELLOW TYPE 2"
+	Message "$PD_BLUEYELLOWA"
+	RemoteMessage "$PD_BLUEYELLOWAO"
 }
 
 Lock 163 // red-blue doomchex
 {
 	Any { RedCard ChexRedCard RedSkull RedFlemKey }
 	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey }
-	Message "REDBLUE DOOMCHEX"
+	Message "$NP_REDBLUE"
+	RemoteMessage "$NP_REDBLUEO"
 }
 
 Lock 164 // red-yellow doomchex
 {
 	Any { RedCard ChexRedCard RedSkull RedFlemKey }
 	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey }
-	Message "REDYELLOW DOOMCHEX"
+	Message "$NP_REDYELLOW"
+	RemoteMessage "$NP_REDYELLOWO"
 }
 
 Lock 165 // blue-yellow doomchex
 {
 	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey }
 	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey }
-	Message "BLUEYELLOW DOOMCHEX"
+	Message "$NP_BLUEYELLOW"
+	RemoteMessage "$NP_BLUEYELLOWO"
 }
 
 Lock 166 // red-blue generic
 {
 	Any { RedCard ChexRedCard RedSkull RedFlemKey KeyGreen }
 	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey KeyBlue }
-	Message "REDBLUE GENERIC"
+	Message "$PD_REDBLUE"
+	RemoteMessage "$PD_REDBLUEO"
 }
 
 Lock 167 // red-yellow generic
 {
 	Any { RedCard ChexRedCard RedSkull RedFlemKey KeyGreen }
 	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey KeyYellow }
-	Message "REDYELLOW GENERIC"
+	Message "$PD_REDYELLOW"
+	RemoteMessage "$PD_REDYELLOWO"
 }
 
 Lock 168 // blue-yellow generic
 {
 	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey KeyBlue }
 	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey KeyYellow }
-	Message "BLUEYELLOW GENERIC"
-}
+	Message "$PD_BLUEYELLOW"
+	RemoteMessage "$PD_BLUEYELLOWO"
+} // 27 two-color locks... out of I think 82 total. 33% of the locks. insane
 
 // Lock 201 reserved as a shoutout to the green keycard map of kappes buur
 Lock 201
-{
+{	// this doesn't get a language reference because it's not a real lock
 	Message "shoutout kappes buur on the zdoom forums for helping me get these keys working!"
 }
 // they helped me figure out how to implement the heretic keys fully into doom
@@ -626,9 +663,9 @@ Lock 201
 
 Lock 229 // generic all 3
 {
-	Any { BlueCard BlueSkull KeyBlue }
-	Any { YellowCard YellowSkull KeyYellow }
-	Any { RedCard RedSkull KeyGreen }
+	Any { BlueCard ChexBlueCard BlueSkull BlueFlemKey KeyBlue }
+	Any { YellowCard ChexYellowCard YellowSkull YellowFlemKey KeyYellow }
+	Any { RedCard ChexRedCard RedSkull RedFlemKey KeyGreen }
 	Message "$PD_ALL3"
 	RemoteMessage "$PD_ALL3O"
 }
@@ -647,8 +684,8 @@ Lock 231 // doom all 3
 	Any { BlueCard BlueSkull }
 	Any { YellowCard YellowSkull }
 	Any { RedCard RedSkull }
-	Message "$PD_ALL3G"
-	RemoteMessage "$PD_ALL3GO"
+	Message "$PD_ALL3D"
+	RemoteMessage "$PD_ALL3DO"
 }
 
 Lock 232 // heretic all 3
@@ -670,7 +707,8 @@ Lock 233 // doom keycard all3
 	BlueCard
 	YellowCard
 	RedCard
-	Message "UAC ALL3"
+	Message "$PD_ALL3C"
+	RemoteMessage "$PD_ALL3CO"
 }
 
 Lock 234 // chex key all3
@@ -678,7 +716,8 @@ Lock 234 // chex key all3
 	ChexBlueCard
 	ChexYellowCard
 	ChexRedCard
-	Message "IFC ALL3"
+	Message "$PD_ALL3N"
+	RemoteMessage "$PD_ALL3NO"
 }
 
 Lock 235 // type 1 key (friendly) all3
@@ -686,7 +725,8 @@ Lock 235 // type 1 key (friendly) all3
 	Any { BlueCard ChexBlueCard }
 	Any { YellowCard ChexYellowCard }
 	Any { RedCard ChexRedCard }
-	Message "FRIENDLY ALL3"
+	Message "$PD_ALL3H"
+	RemoteMessage "$PD_ALL3HO"
 }
 
 // this already creates 3 locks that'll be identical in player-facing...
@@ -698,7 +738,8 @@ Lock 236 // doom skullkey all3
 	BlueSkull
 	YellowSkull
 	RedSkull
-	Message "SKULL ALL3"
+	Message "$PD_ALL3S"
+	RemoteMessage "$PD_ALL3SO"
 }
 
 Lock 237 // chex flemkey all3 (these lock numbers are getting up there)
@@ -706,7 +747,8 @@ Lock 237 // chex flemkey all3 (these lock numbers are getting up there)
 	BlueFlemKey
 	YellowFlemKey
 	RedFlemKey
-	Message "FLEM ALL3"
+	Message "$PD_ALL3F"
+	RemoteMessage "$PD_ALL3FO"
 }
 
 Lock 238 // type 2 key (enemy) all3
@@ -714,5 +756,6 @@ Lock 238 // type 2 key (enemy) all3
 	Any { BlueSkull BlueFlemKey }
 	Any { YellowSkull YellowFlemKey }
 	Any { RedSkull RedFlemKey }
-	Message "ENEMY ALL3"
+	Message "$PD_ALL3A"
+	RemoteMessage "$PD_ALL3AO"
 }
